@@ -17,7 +17,7 @@ const passwordID = "#password"
 const passwordIDRepeat = "#repeat-password"
 const letters = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ12345678910$#^*"
 
-var email = flag.String("email", "rmilejcz22@gmail.com", "recovery email to use for your acc")
+var email = flag.String("email", "", "recovery email to use for your acc")
 
 func sleep(ms int) {
 	time.Sleep(time.Millisecond * time.Duration(ms))
@@ -63,8 +63,9 @@ func nakedTextEntry(cmd string) {
 // }
 
 func main() {
+	flag.Parse()
 	opts := []selenium.ServiceOption{
-		selenium.ChromeDriver("./geckodriver.exe"),
+		selenium.GeckoDriver("./geckodriver.exe"),
 		selenium.Output(os.Stderr),
 	}
 	selenium.SetDebug(false)
