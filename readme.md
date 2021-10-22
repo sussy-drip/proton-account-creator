@@ -6,19 +6,30 @@ You need firefox installed, you probably need to install Go and build the binary
 
 Since I used a hacky heuristic for the initial text entry (wait 5 seconds and then simulate keyboard strokes, relying on the browser to auto focus) it might fail sometimes (or always if your computer is too slow), just restart it if it does.
 
+Once it finishes (takes about 15 seconds), grab the username and password from your console, complete the captcha and you're done.
+
+# Build Dependencies
+
+here are some helpful links in case you want to use this, all of these things are required to build from source:
+
+* [golang](https://golang.org/doc/install)
+* [mingw](https://www.mingw-w64.org/downloads/)
+
+# Runtime Dependencies
+
+I have no idea if the provided exe will actually work on other systems, but you are free to try it
+
+* [firefox](https://www.mozilla.org/en-US/firefox/new/)
+* [java](https://java.com/en/download/manual.jsp)
+
+# Usage
+
+Download the provided binary or build from source
+
 Here is what you do: 
 
 ```
-go build
 ./proton-gen.exe --email=myRecoveryEmail@email.com
 ```
 
-Once it finishes (takes about 15 seconds), grab the username and password from your console, complete the captcha and you're done.
-
-# Dependencies
-
-here are some helpful links in case you want to use this:
-
-* [golang](https://golang.org/doc/install)
-* [firefox](https://www.mozilla.org/en-US/firefox/new/)
-* [mingw ONLY INSTALL THIS IF YOU BUILT FROM SOURCE AND IT STILL FAILED TO RUN](https://www.mingw-w64.org/)
+A firefox window will open, just wait 15-20 seconds for it to move through the prompts and enter the randomly generated info. Then you must manually complete the captcha. Once that is complete, grab the username and password from the terminal window that you run proton-gen in and you can use those details to login to protonmail.
